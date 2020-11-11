@@ -9,6 +9,7 @@
 
 const users = [];
 
+//Creamos la clase user tal como dice el enunciado
 class User {
   constructor(name, money, func) {
     this.name = name;
@@ -17,14 +18,22 @@ class User {
   }
 }
 
-const showMeTheMoneyFunc = () => alert("Dinero del usuario: ");
+//Definimos la funcion que meteremos por parametros al constructor, la cual mostrar en un alert el dinero del usuario y su nombre
+function showMeTheMoneyFunc() {
+  alert("Dinero de " + this.name + ": " + this.money);
+}
 
+//Hacemos el fetch del json
 fetch("./users.json")
   .then(response => response.json())
   .then(data => {
+    //Copiamos los datos en un array (sin copiar la referencia)
     let array = [...data];
+    //Hacemos un map en el cual crearemos los users con el constructor
     array = array.map(u => new User(u.name, u.money, showMeTheMoneyFunc));
+    //Hacemos push con un forEach sobre el array anterior
     array.forEach(u => users.push(u));
   });
 
-setTimeout(users[2].showMeTheMoney(), 1000);
+//Esperamos un minuto para que de tiempo al fetch y luego usamos la funcion del usuario 2
+setTimeout(() => users[2].showMeTheMoney(), 1000);
