@@ -13,7 +13,7 @@ class User {
   constructor(name, money, func) {
     this.name = name;
     this.money = money;
-    this.showMeTheMoney = func;
+    this.showMeTheMoney = showMeTheMoneyFunc;
   }
 }
 
@@ -27,4 +27,4 @@ fetch("./users.json")
     array.forEach(u => users.push(u));
   });
 
-setTimeout(users[2].showMeTheMoney(), 1000);
+setTimeout(() => users[2].showMeTheMoney(), 1000);
