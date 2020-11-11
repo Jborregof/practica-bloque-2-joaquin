@@ -13,7 +13,7 @@ class User {
   constructor(name, money, func) {
     this.name = name;
     this.money = money;
-    this.showMeTheMoney = showMeTheMoneyFunc;
+    this.showMeTheMoney = func;
   }
 }
 
