@@ -33,7 +33,6 @@ fetch("./users.json")
     array = array.map(u => new User(u.name, u.money, showMeTheMoneyFunc));
     //Hacemos push con un forEach sobre el array anterior
     array.forEach(u => users.push(u));
+    //Usamos la funcion del tercer usuario (el 2 ya que empezamos por 0)
+    users[2].showMeTheMoney()
   });
-
-//Esperamos un minuto para que de tiempo al fetch y luego usamos la funcion del usuario 2
-setTimeout(() => users[2].showMeTheMoney(), 1000);
