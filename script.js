@@ -34,5 +34,5 @@ fetch("./users.json")
     //Hacemos push con un forEach sobre el array anterior
     array.forEach(u => users.push(u));
     //Usamos la funcion del tercer usuario (el 2 ya que empezamos por 0)
-    users[2].showMeTheMoney()
+    users[2].showMeTheMoney();
   });
